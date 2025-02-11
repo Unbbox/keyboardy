@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키보디 : 회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/member/signup.css}">
+  </head>
+  <body>
+    <div layout:fragment="content">
+      <section id="register">
+        <form method="post" th:action="@{/signup}">
+          <h2>회원가입</h2>
+          <div class="inputGroup">
+            <label for="userId">아이디</label>
+            <div>
+              <input type="text" id="userId" name="userId" placeholder="아이디 입력"/>
+              <!-- <input type="button" class="idValidButton" value="중복확인" onclick="idValid()"> -->
+              <button type="button" class="idValidButton" onclick="idValid()">중복확인</button>
+            </div>
+          </div>
+  
+          <div class="inputGroup">
+            <label for="password">비밀번호입력</label>
+            <input type="password" id="password" name="password"/>
+          </div>
+  
+          <div class="inputGroup">
+            <label for="passwordConfirm">비밀번호 확인</label>
+            <input type="password" id="passwordConfirm" />
+          </div>
+
+          <div class="inputGroup">
+            <label for="nickname">닉네임</label>
+            <input type="text" name="nickname" id="nickname"/>
+          </div>
+  
+          <div class="inputGroup">
+            <label for="email">이메일 주소</label>
+            <input type="email" name="email" id="email"  />
+          </div>
+  
+          <div class="inputGroup">
+            <label for="phone">휴대전화 번호</label>
+            <input type="tel" id="phone" name="phone"></input>
+          </div>
+  
+          <div class="userAddress">
+            <h2>주소 입력</h2>
+            <div class="inputGroup">
+              <label for="postCode">우편번호</label>
+              <input type="text" name="postCode" id="postCode" placeholder="우편번호" />
+              <button type="button" class="postButton" onclick="execPostCode()">주소 찾기</button>
+              <!-- <input type="button" class="postButton" value="주소 찾기" onclick="execPostCode()" /> <br /> -->
+              <label for="roadAddress">도로명 주소</label>
+              <input type="text" name="roadAddress" id="roadAddress" placeholder="도로명 주소" /> <br />
+              <span id="guide" style="color: #999; display: none"></span>
+              <input type="text" name="detailAddress" id="detailAddress" placeholder="상세 주소" />
+              <input type="text" name="extraAddress" id="extraAddress" placeholder="참고 항목" />
+            </div>
+        </div>
+  
+          <button type="submit">회원가입</button>
+        </form>
+      </section>
+    </div>
+
+    <th:block layout:fragment="script">
+
+      <!-- 아이디 중복확인 -->
+      <script th:src="@{/js/member/signup.js}"></script>
+
+      <!-- 우편번호 JS 추가 -->
+      <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+      <script th:src="@{/js/member/post.js}"></script>
+    </th:block>
+  </body>
+</html>

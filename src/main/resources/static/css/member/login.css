@@ -1,0 +1,10 @@
+#oauth-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#oauth-wrapper img {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}

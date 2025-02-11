@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboardy</title>
+    <!-- 로고 추가 -->
+    <link rel="icon" th:href="@{/img/logo.png}" />
+
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <th:block layout:fragment="css"></th:block>
+  </head>
+  <body>
+    <!-- header -->
+    <header th:replace="~{fragments/header::header}"></header>
+    <!-- header 끝 -->
+
+    <!-- 본문 -->
+    <div layout:fragment="content" class="content"></div>
+    <!-- 본문 끝 -->
+
+    <!-- footer -->
+    <footer th:replace="~{fragments/footer::footer}"></footer>
+    <!-- footer 끝 -->
+
+    <th:block layout:fragment="script"></th:block>
+  </body>
+</html>
