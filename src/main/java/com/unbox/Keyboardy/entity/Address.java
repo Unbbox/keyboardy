@@ -20,8 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Address extends BaseEntity{
     
-    @SequenceGenerator(name = "address_seq_gen", sequenceName = "address_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq_gen")
+    @GeneratedValue
     @Id
     private Long idx;
     

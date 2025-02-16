@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+// import com.unbox.Keyboardy.service.Oauth2UserService;
+
 
 @EnableWebSecurity // 웹에서 security 적용 가능
 @Configuration
@@ -23,7 +25,7 @@ public class SecurityConfig {
             // 접근 제한
             .authorizeHttpRequests(authorize -> authorize
                 // 기본 경로
-                .requestMatchers("/", "/css/**", "/img/**", "/js/**", "/auth").permitAll()
+                .requestMatchers("/", "/css/**", "/img/**", "/js/**", "/oauth2").permitAll()
                 .requestMatchers("/fragments/**", "/layouts/**").permitAll()
                 // user 관련 경로
                 .requestMatchers("/login", "/signup", "/logout", "/member/**").permitAll()
@@ -41,7 +43,7 @@ public class SecurityConfig {
             .oauth2Login(oauth2Login -> 
                 oauth2Login
                     .loginPage("/login")
-                    .defaultSuccessUrl("/")
+                    .defaultSuccessUrl("/", true)
                     .failureUrl("/login")
                     .permitAll()
             )

@@ -1,0 +1,26 @@
+#footer-nav > ul {
+  display: flex;
+  list-style: none;
+}
+
+#footer-nav > ul a {
+  color: lightgrey;
+  margin: 0 10px;
+}
+
+#div-info {
+  display: flex;
+}
+
+#div-info div {
+  display: inline-block;
+}
+
+#shop-info {
+  flex: 2;
+}
+
+#qna-info,
+#pay-info {
+  flex: 1;
+}

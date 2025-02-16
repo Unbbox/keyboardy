@@ -45,5 +45,8 @@ public class Member extends BaseEntity {
     private MemberRole role;
     
     // OAuth 소셜로그인 확인용
-    private String oauthProvider; 
+    private String provider; 
+
+    // providerId : 소셜 로그인 한 유저의 고유 ID가 들어감
+    private String providerId;
 }
