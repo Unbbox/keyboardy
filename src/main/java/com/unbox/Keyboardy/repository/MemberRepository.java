@@ -22,5 +22,7 @@ public interface MemberRepository extends JpaRepository<Member, Long>{
    @Query("SELECT m.userId FROM Member m WHERE m.userId = :id")
    Optional<Member> findOptionalByUserId(String id);
 
-
+   // OAuth 아이디 검색
+   @Query("SELECT m.userId FROM Member m WHERE m.userId = :userId")
+   Member findByOAuthUserId(String userId);
 }

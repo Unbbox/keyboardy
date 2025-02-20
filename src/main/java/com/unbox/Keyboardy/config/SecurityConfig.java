@@ -54,9 +54,11 @@ public class SecurityConfig {
                     .logoutSuccessUrl("/")
             );
 
-        // csrf 필터 비활성화
-        // http
-        //     .csrf(csrf -> csrf.disable());
+        // csrf : 사이트 위변조 방지 설정(스프링 시큐리티에는 자동으로 설정되어 있음)
+        // csrf 기능이 켜져있으면 post 요청을 보낼 때 csrf 토큰도 보내줘야 로그인 진행됨
+        // 개발 단계에서만 csrf 잠시 꺼두는 것
+        http
+            .csrf(csrf -> csrf.disable());
 
         // 세션
         // http.sessionManagement(session -> 
