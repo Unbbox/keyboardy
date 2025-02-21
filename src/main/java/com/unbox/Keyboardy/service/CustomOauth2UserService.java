@@ -1,8 +1,5 @@
 package com.unbox.Keyboardy.service;
 
-import java.util.Optional;
-
-import org.springframework.security.access.method.P;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -12,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.unbox.Keyboardy.constant.MemberRole;
 import com.unbox.Keyboardy.dto.MemberDto;
 import com.unbox.Keyboardy.dto.OAuth.GoogleMemberDetails;
+import com.unbox.Keyboardy.dto.OAuth.KaKaoMemberDetails;
 import com.unbox.Keyboardy.dto.OAuth.NaverMemberDetails;
 import com.unbox.Keyboardy.dto.OAuth.OAuth2MemberInfo;
 import com.unbox.Keyboardy.dto.OAuth.OAuthMemberDto;
@@ -57,8 +55,10 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService{
             oAuth2MemberInfo = new NaverMemberDetails(oAuth2User.getAttributes());
             log.info("oAuth2MemberInfo: " + oAuth2MemberInfo);
         } else if(provider.equals("kakao")) {
-
             log.info("카카오 로그인");
+
+            oAuth2MemberInfo = new KaKaoMemberDetails(oAuth2User.getAttributes());
+            log.info("oAuth2MemberInfo: " + oAuth2MemberInfo);
         }
 
         // OAuth 정보

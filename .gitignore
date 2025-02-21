@@ -5,6 +5,10 @@
 */.gitignore
 languageServers-log
 
+## gradle에서 war파일 만들 시 발생하는 .bin .lock 파일 제외
+*.bin
+*.lock
+
 ### Java ###
 # Compiled class file
 *.class
