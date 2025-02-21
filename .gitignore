@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,java,windows,gradle
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,java,windows,gradle
 
+## 프로젝트마다 생성되는 .gitignore 제외 ##
+*/.gitignore
+languageServers-log
+
 ### Java ###
 # Compiled class file
 *.class

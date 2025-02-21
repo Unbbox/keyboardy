@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.unbox.Keyboardy.constant.MemberRole;
 import com.unbox.Keyboardy.dto.MemberDto;
 import com.unbox.Keyboardy.dto.OAuth.GoogleMemberDetails;
+import com.unbox.Keyboardy.dto.OAuth.NaverMemberDetails;
 import com.unbox.Keyboardy.dto.OAuth.OAuth2MemberInfo;
 import com.unbox.Keyboardy.dto.OAuth.OAuthMemberDto;
 import com.unbox.Keyboardy.entity.Member;
@@ -47,12 +48,14 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService{
 
         // 소셜 로그인 정보 저장
         if(provider.equals("google")) {
-
             log.info("구글 로그인");
+
             oAuth2MemberInfo = new GoogleMemberDetails(oAuth2User.getAttributes());
         } else if(provider.equals("naver")) {
-
             log.info("네이버 로그인");
+
+            oAuth2MemberInfo = new NaverMemberDetails(oAuth2User.getAttributes());
+            log.info("oAuth2MemberInfo: " + oAuth2MemberInfo);
         } else if(provider.equals("kakao")) {
 
             log.info("카카오 로그인");
